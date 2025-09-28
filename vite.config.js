@@ -9,15 +9,6 @@ export default defineConfig({
     server: {
         port: 3000,
     },
-    plugins: [
-        react(),
-        svgr(),
-        tailwindcss({
-            config: {
-                darkMode: "class",
-                content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-                plugins: [],
-            },
-        }),
-    ],
+    base: "/bavana/",
+    plugins: [react(), svgr(), tailwindcss()],
 })
