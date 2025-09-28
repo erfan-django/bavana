@@ -1,0 +1,85 @@
+.custom-persian-calendar .bg-1BC300 {
+    background-color: #1bc300;
+    color: white;
+    border-radius: 50%;
+}
+
+.custom-persian-calendar .bg-ED8F44 {
+    background-color: #ed8f44;
+    color: white;
+    border-radius: 50%;
+}
+
+.custom-persian-calendar th {
+    text-align: center;
+    padding: 8px;
+}
+
+.custom-persian-calendar td {
+    text-align: center;
+    padding: 8px;
+}
+
+.custom-persian-calendar .bg-gray-300 {
+    background-color: #d3d3d3;
+    color: #a9a9a9;
+    border-radius: 50%;
+}
+
+.custom-persian-calendar .border-2 {
+    border-width: 2px;
+    border-color: #8d5215;
+}
+
+/* انیمیشن برای پیام دلگرم‌کننده */
+.pulse {
+    animation: pulseAnimation 3s 1;
+}
+
+@keyframes pulseAnimation {
+    0% {
+        background-color: #fbd2b0;
+        transform: scale(1);
+    }
+    50% {
+        background-color: #ed8f44;
+        transform: scale(1.05);
+    }
+    100% {
+        background-color: #fbd2b0;
+        transform: scale(1);
+    }
+}
+
+/* استایل برای اسلایدرهای ساعت */
+.overflow-x-auto::-webkit-scrollbar {
+    display: none;
+}
+
+.overflow-x-auto {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* انیمیشن برای پیام رزرو */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade {
+    animation: fadeIn 0.3s ease-in;
+}

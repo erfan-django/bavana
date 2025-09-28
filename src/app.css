@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+    --font-sans: "Vazirmatn", sans-serif;
+    --breakpoint-*: initial;
+    --breakpoint-sm: 22.5rem; /* 360px */
+    --breakpoint-md: 40rem; /* 640px */
+    --breakpoint-lg: 64rem; /* 1024px */
+    --breakpoint-xl: 90rem; /* 1440px */
+    --breakpoint-2xl: 120rem; /* 1920px */
+    --breakpoint-3xl: 160rem; /* 2560px */
+    --container-8xl: 96rem;
+
+    @keyframes animate1 {
+        0% {
+            left: -100%;
+        }
+        50%,
+        100% {
+            left: 100%;
+        }
+    }
+    @keyframes animate2 {
+        0% {
+            top: -100%;
+        }
+        50%,
+        100% {
+            top: 100%;
+        }
+    }
+    @keyframes animate3 {
+        0% {
+            right: -100%;
+        }
+        50%,
+        100% {
+            right: 100%;
+        }
+    }
+    @keyframes animate4 {
+        0% {
+            bottom: -100%;
+        }
+        50%,
+        100% {
+            bottom: 100%;
+        }
+    }
+}
+body {
+    @apply font-sans;
+    background-color: #fdf6f0;
+}
+
+/* style for animation in home page  */
+
+.playbtn {
+    position: relative;
+    display: inline-block;
+    transition: all 0.5s;
+    font-weight: 600;
+    letter-spacing: 4px;
+    overflow: hidden;
+}
+.playbtn span {
+    border-radius: 60px;
+}
+
+.playbtn:hover {
+    border-radius: 60px;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: 0 0 5px #f4a261, 0 0 25px #f4a261, 0 0 50px #f4a261, 0 0 200px #f4a261;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.playbtn span:nth-child(1) {
+    border-radius: 60px;
+    background: linear-gradient(90deg, transparent, #ed8027);
+    animation: animate1 1s linear infinite;
+    -webkit-animation: animate1 1s linear infinite;
+}
+
+.playbtn span:nth-child(2) {
+    border-radius: 60px;
+    background: linear-gradient(180deg, transparent, #ed8027);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+    -webkit-animation: animate2 1s linear infinite;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    -ms-border-radius: 60px;
+    -o-border-radius: 60px;
+}
+
+.playbtn span:nth-child(3) {
+    border-radius: 60px;
+    background: linear-gradient(270deg, transparent, #ed8027);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.5s;
+    -webkit-animation: animate3 1s linear infinite;
+}
+
+.playbtn span:nth-child(4) {
+    border-radius: 60px;
+    background: linear-gradient(360deg, transparent, #ed8027);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+    -webkit-animation: animate4 1s linear infinite;
+}
+/* انیمیشن برای پیام دلگرم‌کننده */
+.pulse {
+    animation: pulseAnimation 3s 1;
+}
+
+@keyframes pulseAnimation {
+    0% {
+        background-color: #fbd2b0;
+        transform: scale(1);
+    }
+    50% {
+        background-color: #ed8f44;
+        transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
+    }
+    100% {
+        background-color: #fbd2b0;
+        transform: scale(1);
+    }
+}
