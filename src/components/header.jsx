@@ -3,7 +3,7 @@ import Logo from "./Logo"
 import NavMenu from "./nav-menu"
 import SearchBar from "./search-bar"
 import AuthButtons from "./auth-buttons"
-import ThemeToggle from "./Theme-toggle"
+import ThemeToggle from "./theme-toggle"
 import SearchBtn from "./common/search-btn"
 import HamburgerIcon from "../assets/icons/humberger-icon.svg?react" // SVG همبرگری خودت
 
