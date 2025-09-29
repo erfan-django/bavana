@@ -10,7 +10,6 @@ import HamburgerIcon from "../assets/icons/humberger-icon.svg?react" // SVG هم
 const Header = ({ isAuthenticated, setIsAuthenticated, user, setUser }) => {
     console.log("Header props:", { isAuthenticated, setIsAuthenticated, user, setUser })
 
-    // حالت منو موبایل
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const toggleMenu = () => {
