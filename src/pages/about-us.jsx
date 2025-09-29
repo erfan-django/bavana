@@ -58,23 +58,23 @@ const AboutUs = () => {
                     <p className="dark:text-white text-xs sm:text-sm lg:text-lg lg:w-[523px] text-justify mx-2 sm:mx-3 lg:mx-3">باوانا یک سامانه رزرواسیون فضای مطالعه است که با ترکیب تکنولوژی و درک احساسات کاربران ، تجربه ای متفاوت از مطالعه را خلق میکند. ما باور داریم حس و حال خوب کلید تمرکز و یادگیری عمیقه برای همین توی باوانا قبل از شروع مطالعه ازت میپرسه چه حسی داری.... و یه موسیقی مخصوص حال اون لحظه ت برات پخش میکنیم .</p>
                 </div>
                 <div className="flex gap-2 sm:gap-5 lg:gap-[10px] mt-4 mb-10 sm:mb-12 lg:mb-14 items-center justify-center">
-                    <img src={aboutus1} alt="gallery" className="h-[150px] sm:h-[200px]  w-[80px] sm:w-[150px]  lg:h-[670px] lg:w-[300px]" />
-                    <img src={aboutus2} alt="gallery" className="w-[50px] sm:w-[60px]  h-[120px] sm:h-[130px] lg:h-[670px] lg:w-[300px] hidden sm:flex lg:flex" />
+                    <img src={aboutus1} alt="gallery" className="h-[150px] sm:h-[200px]  w-[80px] sm:w-[150px]  lg:h-[570px] lg:w-[300px]" />
+                    <img src={aboutus2} alt="gallery" className="w-[50px] sm:w-[60px]  h-[120px] sm:h-[130px] lg:h-[570px] lg:w-[300px] hidden sm:flex lg:flex" />
                 </div>
             </div>
 
-            <div className="flex gap-1 mb-[82px] px-1">
+            <div className="flex gap-1 mb-[82px]">
                 <div className="flex justify-between items-center lg:px-3 bg-[#F4A261] lg:h-[176px] lg:w-[477px] shadow-lg/40">
-                    <span className="text-white dark:text-[#251D16] text-xs lg:text-4xl font-bold">کاهش حس تنهایی</span>
-                    <img src={headerline1} className="w-10 h-10 lg:h-fit lg:w-fit mt-[20px] " />
+                    <span className="text-white dark:text-[#251D16] text-sm lg:text-4xl font-bold">کاهش حس تنهایی</span>
+                    <img src={headerline1} className="w-10 h-10 lg:h-fit lg:w-fit mt-[20px]" />
                 </div>
-                <div className="flex justify-evenly items-center px-3 bg3[#F4A261] lg:h-[176px] lg:w-[477px] shadow-lg/40">
-                    <span className="text-white dark:text-[#251D16] text-xs lg:text-4xl font-bold"> ایجاد انگیزه </span>
-                    <img src={headerline2} className="w-10 h-10 lg:w-fit  lg:h-fit mt-[20px]" />
+                <div className="flex justify-evenly items-center px-3 bg-[#F4A261] lg:h-[176px] lg:w-[477px] shadow-lg/40">
+                    <span className="text-white dark:text-[#251D16] text-sm lg:text-4xl font-bold">ایجاد انگیزه</span>
+                    <img src={headerline2} className="w-10 h-10 lg:w-fit lg:h-fit mt-[20px]" />
                 </div>
-                <div className="flex justify-evenly items-center px-3 bg3[#F4A261] lg:h-[176px] lg:w-[477px] shadow-lg/40">
-                    <span className="text-white text-center dark:text-[#2xsD16] text-sm lg:text-4xl/relaxed font-bold"> پیشنهاد روش مطالعه </span>
-                    <img src={headerline3} className="w-10 h-10 lg:h-fit lg:w-fit  mt-[20px]" />
+                <div className="flex justify-evenly items-center px-3 bg-[#F4A261] lg:h-[176px] lg:w-[477px] shadow-lg/40">
+                    <span className="text-white text-center dark:text-[#251D16] text-sm lg:text-4xl/relaxed font-bold">پیشنهاد روش مطالعه</span>
+                    <img src={headerline3} className="w-10 h-10 lg:h-fit lg:w-fit mt-[20px]" />
                 </div>
             </div>
 

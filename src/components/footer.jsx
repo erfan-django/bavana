@@ -9,11 +9,17 @@ const Footer = () => {
         <footer>
             <div className="bg-white dark:bg-[#FDDEC3] rounded-[500px] lg:w-[1440px] w-[359px] h-[500px]  flex lg:flex-row flex-col items-center justify-center lg:gap-[100px] lg:mt-[60px] mb-[30px]">
                 <div className="flex items-center flex-col">
-                    <img src={logoImage2} alt="logo" className="w-[192px] h-[70px] lg:w-[378px] lg:h-[156px]" />
+                    <link to="/">
+                        <img src={logoImage2} alt="logo" className="w-[192px] h-[70px] lg:w-[378px] lg:h-[156px]" />
+                    </link>
                     <span className="lg:text-2xl w-[177px] lg:w-[350px] mt-5 lg:mt-[31px] text-wrap">هر لحظه ای که با تمرکز سپری میکنی یک قدم به رویاهات نزدیک تر هستی !</span>
                     <div className="lg:mt-10 flex mt-5 gap-5">
-                        <a className="bg-[#A16C4B] lg:px-[48px] py-2 px-1.5 lg:py-[14px] rounded-[20px] lg:text-xl text-sm text-white dark:text-[#251D16] dark:bg-[#DF7F1D] cursor-pointer hover:shadow-2xl/10"> ارتباط با ما </a>
-                        <a className="border-[#A16C4B] border-2 py-2 px-1.5 lg:px-[12px] lg:py-[14px] rounded-[20px] text-sm lg:text-xl dark:text-[#251D16] dark:border-[#251D16] text-[#A16C4B] cursor-pointer hover:text-white hover:bg-[#251D16] hover:border-[#251D16] dark:hover:text-[#A16C4B]"> رزرو فضای مطالعه </a>
+                        <Link to="/contact-us" className=" bg-[#A16C4B] lg:px-[48px] py-2 px-1.5 lg:py-[14px] rounded-[20px] lg:text-xl text-sm text-white dark:text-[#251D16] dark:bg-[#DF7F1D] cursor-pointer hover:shadow-2xl/10">
+                            ارتباط با ما
+                        </Link>
+                        <Link to="/myroom" className="border-[#A16C4B] border-2 py-2 px-1.5 lg:px-[12px] lg:py-[14px] rounded-[20px] text-sm lg:text-xl dark:text-[#251D16] dark:border-[#251D16] text-[#A16C4B] cursor-pointer hover:text-white hover:bg-[#251D16] hover:border-[#251D16] dark:hover:text-[#A16C4B]">
+                            رزرو فضای مطالعه
+                        </Link>
                     </div>
                 </div>
                 <div className="mt-5 lg:mt-0 flex flex-col-reverse lg lg:flex-col items-center gap-[18px] ">
