@@ -15,7 +15,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated, user, setUser }) => {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
     }
-
+    //
     return (
         <header className="flex justify-between items-center lg:gap-[7%] h-[98px] bg-[#FDF6F0] dark:bg-[#251D16] px-4">
             {/* حالت موبایل */}
