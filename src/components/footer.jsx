@@ -1,8 +1,8 @@
 import logoImage2 from "../assets/LOGO-2.png"
-import WhatsappIcon from "../assets/icons/whatsapp.svg?react"
-import InstagramIcon from "../assets/icons/instagram.svg?react"
-import LinkedinIcon from "../assets/icons/linkedin.svg?react"
-import TelegramIcon from "../assets/icons/telegram.svg?react"
+import WhatsappIcon from "../assets/icons/Whatsapp.svg?react"
+import InstagramIcon from "../assets/icons/Instagram.svg?react"
+import LinkedinIcon from "../assets/icons/Linkedin.svg?react"
+import TelegramIcon from "../assets/icons/Telegram.svg?react"
 
 const Footer = () => {
     return (
