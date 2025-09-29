@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import logoImage2 from "../assets/LOGO-2.png"
 import WhatsappIcon from "../assets/icons/Whatsapp.svg?react"
 import InstagramIcon from "../assets/icons/Instagram.svg?react"
@@ -9,9 +10,9 @@ const Footer = () => {
         <footer>
             <div className="bg-white dark:bg-[#FDDEC3] rounded-[500px] lg:w-[1440px] w-[359px] h-[500px]  flex lg:flex-row flex-col items-center justify-center lg:gap-[100px] lg:mt-[60px] mb-[30px]">
                 <div className="flex items-center flex-col">
-                    <link to="/">
+                    <Link to="/">
                         <img src={logoImage2} alt="logo" className="w-[192px] h-[70px] lg:w-[378px] lg:h-[156px]" />
-                    </link>
+                    </Link>
                     <span className="lg:text-2xl w-[177px] lg:w-[350px] mt-5 lg:mt-[31px] text-wrap">هر لحظه ای که با تمرکز سپری میکنی یک قدم به رویاهات نزدیک تر هستی !</span>
                     <div className="lg:mt-10 flex mt-5 gap-5">
                         <Link to="/contact-us" className=" bg-[#A16C4B] lg:px-[48px] py-2 px-1.5 lg:py-[14px] rounded-[20px] lg:text-xl text-sm text-white dark:text-[#251D16] dark:bg-[#DF7F1D] cursor-pointer hover:shadow-2xl/10">

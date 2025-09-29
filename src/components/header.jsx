@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useState } from "react"
 import Logo from "./Logo"
 import NavMenu from "./nav-menu"
@@ -15,7 +16,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated, user, setUser }) => {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
     }
-    //
+
     return (
         <header className="flex justify-between items-center lg:gap-[7%] h-[98px] bg-[#FDF6F0] dark:bg-[#251D16] px-4">
             {/* حالت موبایل */}
@@ -23,9 +24,9 @@ const Header = ({ isAuthenticated, setIsAuthenticated, user, setUser }) => {
                 <button onClick={toggleMenu}>
                     <HamburgerIcon className="w-11 py-2 px-2 h-11 flex justify-center items-center  rounded-full bg-[#ED8F44] text-white dark:text-[#251D16]" />
                 </button>
-                <link to="/">
+                <Link>
                     <Logo />
-                </link>
+                </Link>
 
                 <AuthButtons isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} user={user} setUser={setUser} className="" />
             </div>
