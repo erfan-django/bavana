@@ -19,7 +19,7 @@ const App = () => {
     return (
         <AuthProvider>
             <PlaylistProvider>
-                <div className="relative">
+                <div className="relative dark:bg-[#251D16] bg-[#FDF6F0">
                     <PlaylistPlayer />
                     <Routes>
                         <Route path="/" element={<MainLayout />}>

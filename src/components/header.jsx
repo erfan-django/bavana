@@ -18,13 +18,13 @@ const Header = ({ isAuthenticated, setIsAuthenticated, user, setUser }) => {
     }
 
     return (
-        <header className="flex justify-between items-center lg:gap-[7%] h-[98px] bg-[#FDF6F0] dark:bg-[#251D16] px-4">
+        <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center lg:gap-[7%] py-2 lg:py-0 lg:h-[84px] bg-[#FDF6F0] dark:bg-[#251D16] px-x">
             {/* حالت موبایل */}
             <div className="flex justify-between items-center w-full md:hidden">
                 <button onClick={toggleMenu}>
                     <HamburgerIcon className="w-11 py-2 px-2 h-11 flex justify-center items-center  rounded-full bg-[#ED8F44] text-white dark:text-[#251D16]" />
                 </button>
-                <Link>
+                <Link to="/">
                     <Logo />
                 </Link>
 
@@ -46,7 +46,9 @@ const Header = ({ isAuthenticated, setIsAuthenticated, user, setUser }) => {
             {/* حالت دسکتاپ */}
             <div className="hidden md:flex items-center w-full">
                 <div className="flex items-center w-50% lg:basis-[50%]">
-                    <Logo />
+                    <Link to="/">
+                        <Logo />
+                    </Link>
                     <NavMenu isAuthenticated={isAuthenticated} />
                 </div>
                 <div className="flex items-center w-50% lg:basis-[48%]">

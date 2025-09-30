@@ -1,5 +1,5 @@
 import { useState, useContext } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../components/auth-context"
 import gallery1 from "../assets/header-gallery-1.png"
 import gallery2 from "../assets/header-gallery-2.png"
@@ -65,8 +65,12 @@ const HomePage = () => {
                     <h1 className="lg:text-5xl/relaxed lg:w-[417px] font-bold text-[#8D5215] dark:text-[#DF7F1D] mb-6 pt-9">مطالعه ای متفاوت با حال و هوای دلخواه تو</h1>
                     <p className="dark:text-white lg:w-[523px] lg:text-2xl/relaxed text-lg text-justify">باوانا، اولین سامانه هوشمند رزرواسیون فضای مطالعه که با درک حال و هوای لحظه‌ای شما، نه‌تنها فضای مناسب برای تمرکزتان فراهم می‌کند، بلکه با پخش موسیقی متناسب با احساس‌تان، همراهی دلنشین برای لحظه‌های یادگیری شماست.</p>
                     <div className="lg:mt-10 items-center justify-center mt-2 flex gap-5">
-                        <a className="bg-[#A16C4B] px-[48px] py-[14px] rounded-[20px] text-sm lg:text-xl text-white cursor-pointer">ارتباط با ما</a>
-                        <a className="border-[#A16C4B] border-2 px-[12px] py-[14px] rounded-[20px] text-sm lg:text-xl text-[#A16C4B] cursor-pointer">رزرو فضای مطالعه</a>
+                        <Link to="contact-us" className="bg-[#A16C4B] px-[48px] py-[14px] rounded-[20px] text-sm lg:text-xl text-white cursor-pointer">
+                            ارتباط با ما
+                        </Link>
+                        <Link to="myroom" className="border-[#A16C4B] border-2 px-[12px] py-[14px] rounded-[20px] text-sm lg:text-xl text-[#A16C4B] cursor-pointer">
+                            رزرو فضای مطالعه
+                        </Link>
                     </div>
                 </div>
                 <div className="grid lg:grid-cols-2 lg:grid-rows-2 gap-[10px] mt-4 mb-9">
@@ -157,7 +161,7 @@ const HomePage = () => {
                 </div>
             </div>
             <div className="flex flex-col items-center mb-7">
-                <div className="flex lg:mx-[42px] justify-center items-center mx-3 lg:justify-between gap-2">
+                <div className="lg:w-[90%] flex lg:mx-[42px] justify-center lg:my-8 lg:items-baseline mx-3 lg:justify-between gap-2">
                     <h2 className="mb-5 mr-4 text-xl lg:text-3xl dark:text-[#DF7F1D]">کجا دوست داری مطالعه کنی؟</h2>
                     <a onClick={handleViewAll} className="lg:flex hidden items-center dark:bg-[#DF7F1D] text-white dark:text-[#251D16] bg-[#A16C4B] rounded-[20px] lg:px-5 lg:py-4 cursor-pointer hover:bg-[#cb8458] text-lg lg:text-2xl">
                         مشاهده همه
@@ -193,7 +197,7 @@ const HomePage = () => {
                 <img src={bgcommentsdark} alt="Background-Comments" className="w-[320px] h-[330px] lg:w-full lg:h-auto object-cover relative z-0 dark:block hidden" />
                 <div className="absolute mr-10 lg:mt-[150px] top-[80px] lg:w-[410px] flex flex-col gap-1">
                     <p className="text-white text-sm lg:text-3xl dark:text-[#251D16]">در مورد باوانا چه میشنویم؟</p>
-                    <p className="text-white text-sm lg:text-xl dark:text-[#251D16]">این‌ها تنها بخش کوچکی از نظراتی هستند که افراد مختلف از میزبانان و کارکنان در مورد باوانا ابراز کرده‌اند</p>
+                    <p className="text-white text-sm lg:text-xl  text-justify dark:text-[#251D16]">این‌ها تنها بخش کوچکی از نظراتی هستند که افراد مختلف از میزبانان و کارکنان در مورد باوانا ابراز کرده‌اند</p>
                 </div>
                 <div className="absolute lg:top-[80px] lg:left-[50px] lg:w-[538px] lg:h-[389px]">
                     <img src={layer0} alt="bg-layer" className="absolute z-10 translate-x-16 translate-y-16 lg:flex hidden" />

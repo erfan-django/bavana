@@ -28,8 +28,8 @@ const MyRoomPage = () => {
                             </div>
                             <span className="opacity-60 mr-3 mt-1 dark:text-[#A58380]">{room.location}</span>
                             <div className="flex justify-between mt-2 mx-[46px]">
-                                <div className="flex rounded-xl bg-[#FBC9A2] py-[3px] px-1">
-                                    <span className="opacity-60">{room.price}</span>
+                                <div className="flex rounded-xl bg-[#FBC9A2] lg:pt-1 py-[3px] px-1">
+                                    <span className="text-center opacity-60">{room.price}</span>
                                 </div>
                                 <a className="cursor-pointer rounded-xl py-[3px] px-1.5 flex bg-[#F4A261]" onClick={() => navigate(`/room/${room.id}`)}>
                                     <span className="text-white flex items-center dark:text-[#251D16]">رزرو آنلاین</span>

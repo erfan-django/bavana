@@ -75,10 +75,10 @@ const CustomCalendar = ({ availableDates, selectedDate, onDateSelect }) => {
         }
 
         return (
-            <table className="w-full border-collapse text-right">
-                <thead>
+            <table className="w-full border-collapse text-right dark:bg-[#FDDEC3]">
+                <thead className="dark:bg-[#FDDEC3]">
                     <tr>
-                        <th colSpan="7" className="p-2 sm:p-3 lg:p-5 text-center bg-[#FBD2B0] text-[#8D5215]">
+                        <th colSpan="7" className="p-2 sm:p-3 lg:p-5 text-center bg-[#FDDEC3] text-[#8D5215]">
                             <button onClick={() => changeMonth(-1)} className="cursor-pointer hover:scale-125 mx-1 sm:mx-2">
                                 &lt;
                             </button>
@@ -90,9 +90,9 @@ const CustomCalendar = ({ availableDates, selectedDate, onDateSelect }) => {
                             </button>
                         </th>
                     </tr>
-                    <tr className="text-center text-xs sm:text-[10px] lg:text-base">
+                    <tr className="text-center text-xs sm:text-[10px] lg:text-base dark:bg-[#FDDEC3] ">
                         {["شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه"].map((d, i) => (
-                            <th key={i} className="p-1 sm:p-1.5 lg:p-2">
+                            <th key={i} className=" p-1 sm:p-1.5 lg:p-2">
                                 {d}
                             </th>
                         ))}
@@ -106,7 +106,7 @@ const CustomCalendar = ({ availableDates, selectedDate, onDateSelect }) => {
     return (
         <div className="border border-[#ED8F44] rounded-lg p-2 sm:p-3 lg:p-3 text-sm sm:text-xs lg:text-xl w-full">
             {renderCalendar()}
-            {selectedDate && <p className="mt-2 sm:mt-3 lg:mt-4 text-sm sm:text-xs lg:text-lg text-[#8D5215]">تاریخ انتخاب شده: {selectedDate}</p>}
+            {selectedDate && <p className="mt-2 sm:mt-3 lg:mt-4 text-sm sm:text-xs lg:text-lg text-[#8D5215] dark:text-white font-bold">تاریخ انتخاب شده: {selectedDate}</p>}
         </div>
     )
 }

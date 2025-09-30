@@ -63,6 +63,11 @@ body {
     font-weight: 600;
     letter-spacing: 4px;
     overflow: hidden;
+    border-radius: 60px;
+    -moz-border-radius: 60px;
+    -ms-border-radius: 60px;
+    -o-border-radius: 60px;
+    -webkit-border-radius: 60px;
 }
 .playbtn span {
     border-radius: 60px;

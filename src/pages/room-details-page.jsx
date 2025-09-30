@@ -127,9 +127,9 @@ const RoomDetailPage = () => {
                 <div className="flex justify-between p-8">
                     <div className="text-right">
                         <h1 className="text-3xl font-bold text-[#8D5215] dark:text-[#DF7F1D]">{room.title}</h1>
-                        <p className="mt-8 text-xl opacity-70">{room.description}</p>
-                        <p className="text-2xl font-semibold text-[#ED8F44] mt-2"> ساعتی {room.price} </p>
-                        <p className="mt-8">آدرس : واقع در باوانا (خیابان عطار فرشی 5 غربی)</p>
+                        <p className="dark:text-white mt-8 text-xl opacity-70">{room.description}</p>
+                        <p className=" text-2xl font-semibold text-[#ED8F44] mt-6"> ساعتی {room.price} </p>
+                        <p className="mt-8 dark:text-white">آدرس : واقع در باوانا (خیابان عطار فرعی 5 غربی)</p>
                     </div>
                 </div>
                 <img src={room.image} alt={room.title} className="lg:w-[690px] lg:h-[490px] w-[90%] object-cover" />
@@ -139,8 +139,8 @@ const RoomDetailPage = () => {
                 <div className="bg-[#FBD2B0] w-full rounded-3xl h-[70px] flex justify-between items-center mb-8 px-4 lg:p-4">
                     <div className="flex items-center gap-2.5">
                         <span className="rounded-full w-5 h-5 bg-[#ED8F44]"></span>
-                        <h2 className="lg:flex hidden text-2xl font-bold text-[#8D5215] dark:text-[#DF7F1D]">انتخاب اولین تاریخ خالی</h2>
-                        <h2 className="lg:hidden text-xs font-bold text-[#8D5215] dark:text-[#DF7F1D]">تاریخ</h2>
+                        <h2 className="lg:flex hidden text-2xl font-bold text-[#8D5215] dark:text-black">انتخاب اولین تاریخ خالی</h2>
+                        <h2 className="lg:hidden text-xs font-bold text-[#8D5215] dark:text-black">تاریخ</h2>
                     </div>
                     <div className="flex gap-1 lg:gap-6">
                         <div className="flex gap-2 items-center">
@@ -166,40 +166,44 @@ const RoomDetailPage = () => {
                 <div className="bg-[#FBD2B0] w-full rounded-3xl h-[70px] flex justify-between items-center mb-8 p-4">
                     <div className="flex items-center gap-2.5">
                         <span className="rounded-full w-5 h-5 bg-[#ED8F44]"></span>
-                        <h2 className="text-2xl sm:text-lg md:text-xl font-bold text-[#8D5215] dark:text-[#DF7F1D]">انتخاب ساعت</h2>
+                        <h2 className="text-2xl sm:text-lg md:text-xl font-bold text-[#8D5215] dark:text-black">انتخاب ساعت</h2>
+                    </div>
+                </div>
+                <div className="lg:pb-5 lg:px-3 lg:dark:bg-[#FDDEC3] lg:rounded-3xl">
+                    {" "}
+                    <h2 className="text-2xl sm:text-lg md:text-xl  font-bold dark:bg-[#FDDEC3] text-[#8D5215] dark:text-[#DF7F1D] pb-4 pt-3 rounded-t-3xl  pr-4">ساعت شروع</h2>
+                    <div className="overflow-x-auto whitespace-nowrap pb-4 lg:rounded-b-xl dark:bg-[#FDDEC3] scrollbar-hide">
+                        {timeSlots.map((time) => (
+                            <button key={time} onClick={() => handleStartTimeChange(time)} className={`inline-block px-4 sm:px-3 py-2 mx-1 sm:mx-1 rounded-lg border-2 text-center text-sm sm:text-xs md:text-sm ${startTime === time ? "bg-[#ED8F44] text-white border-[#ED8F44]" : "bg-white border-gray-300 text-[#8D5215]"}`}>
+                                {time}
+                            </button>
+                        ))}
                     </div>
                 </div>
 
-                <h2 className="text-2xl sm:text-lg md:text-xl font-bold text-[#8D5215] dark:text-[#DF7F1D] mb-4">ساعت شروع</h2>
-                <div className="overflow-x-auto whitespace-nowrap pb-4 scrollbar-hide">
-                    {timeSlots.map((time) => (
-                        <button key={time} onClick={() => handleStartTimeChange(time)} className={`inline-block px-4 sm:px-3 py-2 mx-1 sm:mx-1 rounded-lg border-2 text-center text-sm sm:text-xs md:text-sm ${startTime === time ? "bg-[#ED8F44] text-white border-[#ED8F44]" : "bg-white border-gray-300 text-[#8D5215]"}`}>
-                            {time}
-                        </button>
-                    ))}
-                </div>
-
-                <h2 className="text-2xl sm:text-lg md:text-xl font-bold text-[#8D5215] dark:text-[#DF7F1D] mb-4 mt-6">ساعت پایان</h2>
-                <div className="overflow-x-auto whitespace-nowrap pb-4 scrollbar-hide">
-                    {timeSlots.map((time) => (
-                        <button key={time} onClick={() => handleEndTimeChange(time)} className={`inline-block px-4 sm:px-3 py-2 mx-1 sm:mx-1 rounded-lg border-2 text-center text-sm sm:text-xs md:text-sm ${endTime === time ? "bg-[#ED8F44] text-white border-[#ED8F44]" : "bg-white border-gray-300 text-[#8D5215]"}`}>
-                            {time}
-                        </button>
-                    ))}
+                <div className="lg:pb-5 lg:px-3 lg:dark:bg-[#FDDEC3] lg:rounded-3xl">
+                    <h2 className="text-2xl lg:rounded-t-3xl sm:text-lg md:text-xl font-bold text-[#8D5215] dark:text-[#DF7F1D]  pb-4 pt-6 lg:mt-6 pr-4 dark:bg-[#FDDEC3]">ساعت پایان</h2>
+                    <div className="overflow-x-auto whitespace-nowrap pb-4 scrollbar-hide  rounded-b-3xl  pt-3 dark:bg-[#FDDEC3]">
+                        {timeSlots.map((time) => (
+                            <button key={time} onClick={() => handleEndTimeChange(time)} className={`inline-block px-4 sm:px-3 py-2 mx-1 sm:mx-1 rounded-lg border-2 text-center text-sm sm:text-xs md:text-sm ${endTime === time ? "bg-[#ED8F44] text-white border-[#ED8F44]" : "bg-white border-gray-300 text-[#8D5215]"}`}>
+                                {time}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
 
             {/* بخش حال و هوا */}
-            <div className="p-8">
+            <div className="p-8 dark:bg-[#FDDEC3] rounded-4xl">
                 <h2 className="text-2xl sm:text-lg md:text-xl font-bold text-[#8D5215] dark:text-[#DF7F1D] mb-4">حال و هوای شما</h2>
-                <div className="flex flex-wrap gap-4 justify-center">
+                <div className="flex flex-wrap gap-4 justify-center ">
                     {["خوشحال", "معمولی", "مضطرب", "ناراحت", "بی حوصله"].map((m) => {
                         const moodImages = { خوشحال: happy, معمولی: smileEyes, مضطرب: confused, ناراحت: sad, "بی حوصله": unamused }
                         return (
-                            <label key={m} className="cursor-pointer flex flex-col items-center sm:mx-1 md:mx-2">
+                            <label key={m} className="cursor-pointer flex flex-col items-center sm:mx-1 md:mx-2 border-2 rounded-lg p-3">
                                 <input type="radio" name="mood" value={m} onChange={(e) => setMood(e.target.value)} className="hidden" />
                                 <img src={moodImages[m]} alt={m} className="w-12 sm:w-10 md:w-12 h-12 sm:h-10 md:h-12 mb-2" />
-                                <span className={`px-4 py-2 sm:px-2 sm:py-1 md:px-4 md:py-2 rounded-lg border-2 text-center text-sm sm:text-xs md:text-sm ${mood === m ? "border-[#ED8F44] bg-[#ED8F44]/20" : "border-gray-300"} transition-all`}>{m}</span>
+                                <span className={`px-4 py-2 sm:px-2 sm:py-1 md:px-4 md:py-2  text-center text-sm rounded-lg  sm:text-xs md:text-sm ${mood === m ? "border-[#ED8F44]  bg-[#ED8F44]/20" : "border-gray-300"} transition-all`}>{m}</span>
                             </label>
                         )
                     })}
@@ -208,7 +212,7 @@ const RoomDetailPage = () => {
 
             {mood && (
                 <div className="p-8 mt-4" key={animationTrigger}>
-                    <p className="text-lg text-[#8D5215] dark:text-[#DF7F1D] bg-[#FBD2B0] p-4 rounded-lg pulse">{moodMessages[mood]}</p>
+                    <p className="text-lg text-[#8D5215] dark:text-[#8d5013] bg-[#FBD2B0] p-4 rounded-lg pulse">{moodMessages[mood]}</p>
                 </div>
             )}
 
@@ -221,7 +225,7 @@ const RoomDetailPage = () => {
 
             {(selectedDate || startTime || endTime) && (
                 <div className="p-8 text-center">
-                    <button onClick={handleCompleteReservation} className="bg-[#ED8F44] text-white px-6 py-3 rounded-lg text-xl hover:bg-[#D77A3A] transition">
+                    <button onClick={handleCompleteReservation} className="bg-[#ED8F44] text-white px-6 py-3 rounded-lg text-xl hover:bg-[#D77A3A] transition cursor-pointer">
                         تکمیل رزرو
                     </button>
                     <p className="mt-2 text-lg text-[#8D5215]">هزینه کل: {totalCost.toLocaleString()} تومان</p>
