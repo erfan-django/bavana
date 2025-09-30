@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom"
 import "./app.css"
 import LoginPage from "./pages/login-page"
 import SignupPage from "./pages/sign-up-page"
-// import ReservationPage from "./pages/reservation"
 import MainLayout from "./layout/main-layout"
 import HomePage from "./pages/home"
 import MyRoomPage from "./pages/my-room-page"
@@ -32,7 +31,6 @@ const App = () => {
                         </Route>
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/signup" element={<SignupPage />} />
-                        {/* <Route path="/reservation" element={<ReservationPage />} /> */}
                         <Route path="/user-profile" element={<UserProfilePage />} />
                     </Routes>
                 </div>
