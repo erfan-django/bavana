@@ -9,7 +9,6 @@ const SignupPage = () => {
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
 
-    // ✅ کنترل سایز صفحه (همون لاجیک LoginPage)
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1024)
 
     useEffect(() => {
@@ -55,8 +54,6 @@ const SignupPage = () => {
                     </Link>
                 </p>
             </div>
-
-            {/* عکس فقط در lg نمایش داده شود */}
             <img src={loginbg} alt="loginbg" className="hidden lg:block lg:w-[640px] lg:h-[680px] xl:w-[840px] xl:h-[880px]" />
         </div>
     )

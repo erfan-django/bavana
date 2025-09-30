@@ -27,7 +27,6 @@ const HomePage = () => {
     const [showModal, setShowModal] = useState(false)
 
     const handleRoomClick = (roomId) => {
-        console.log("isAuthenticated in HomePage:", isAuthenticated) // برای دیباگ
         if (!isAuthenticated) {
             setShowModal(true)
             setTimeout(() => {
@@ -43,7 +42,7 @@ const HomePage = () => {
         navigate("/myroom")
     }
 
-    // گرفتن یک اتاق از هر نوع
+    //    GET one room from every catagory to show in home page
     const uniqueRooms = allRoomData.reduce((acc, room) => {
         if (!acc[room.type]) {
             acc[room.type] = room

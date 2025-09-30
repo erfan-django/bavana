@@ -7,8 +7,10 @@ import usePlaylist from "./useplaylist"
 
 const AuthButtons = () => {
     const { isAuthenticated, user, logout } = useContext(AuthContext)
-    const [isHovering, setIsHovering] = useState(false) // برای دسکتاپ
-    const [isMenuOpen, setIsMenuOpen] = useState(false) // برای موبایل
+    const [isHovering, setIsHovering] = useState(false)
+    //  for desktopp
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    //  for mobile
     const [reservation, setReservation] = useState(null)
     const navigate = useNavigate()
 
@@ -110,7 +112,7 @@ const AuthButtons = () => {
                         )}
                     </div>
 
-                    {/* موبایل - مدال */}
+                    {/*  Mobile Modal */}
                     <div className="flex lg:hidden">
                         <button onClick={toggleMenu} className="flex justify-center items-center w-[50px] h-[50px] rounded-full bg-[#ED8F44] text-white dark:text-[#251D16]">
                             <UserIcon width={24} height={24} />
@@ -152,7 +154,7 @@ const AuthButtons = () => {
                                         </button>
                                     </div>
 
-                                    {/* موبایل - iframe اسپاتیفای */}
+                                    {/*  iframe for spotify */}
                                     {playlistUrl && (
                                         <div className="mt-6">
                                             <iframe src={`${playlistUrl}?autoplay=1`} width="100%" height="200" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-lg" title={`Playlist for ${currentMood}`} />

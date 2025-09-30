@@ -12,7 +12,7 @@ const LoginPage = () => {
     const location = useLocation()
     const from = location.state?.from || "/"
 
-    // ✅ کنترل سایز صفحه
+    // size page
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1024)
 
     useEffect(() => {
@@ -59,8 +59,6 @@ const LoginPage = () => {
                     </Link>
                 </p>
             </div>
-
-            {/* عکس فقط در lg نمایش داده شود */}
             <img src={loginbg} alt="loginbg" className="hidden lg:block lg:w-[640px] lg:h-[680px] xl:w-[840px] xl:h-[880px]" />
         </div>
     )

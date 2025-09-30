@@ -6,7 +6,7 @@ const PlaylistPlayer = () => {
     const { isPlaylistVisible, currentMood, playlistUrl, setIsPlaylistVisible } = usePlaylist()
     const nodeRef = useRef(null)
 
-    // فقط برای دسکتاپ نشون بده
+    //JUST SHOW THIS IN DESKTOP , ITS BG
     if (window.innerWidth < 1024) return null
     if (!isPlaylistVisible || !currentMood || !playlistUrl) return null
 

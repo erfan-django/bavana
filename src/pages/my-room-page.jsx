@@ -7,13 +7,9 @@ import allRoomData from "../data/room-data"
 const MyRoomPage = () => {
     const { isAuthenticated } = useContext(AuthContext)
     const navigate = useNavigate()
-
-    console.log("isAuthenticated in MyRoomPage:", isAuthenticated) // برای دیباگ
-
     if (!isAuthenticated) {
         return <Navigate to="/login" replace />
     }
-
     return (
         <div className="dark:bg-[#251D16] bg-[#FDF6F0] min-h-screen">
             <h1 className="text-3xl font-bold text-[#8D5215] dark:text-[#DF7F1D] my-[60px] text-center">صندلی اشتراکی</h1>

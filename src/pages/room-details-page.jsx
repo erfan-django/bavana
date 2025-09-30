@@ -41,14 +41,14 @@ const RoomDetailPage = () => {
     useEffect(() => {
         const mockRoom = allRoomData.find((r) => r.id === parseInt(id)) || allRoomData[0]
         const formattedAvailableDates = []
-
-        let pd = new PersianDate() // امروز
+        //TODAY :
+        let pd = new PersianDate()
         const oneYearLater = pd.clone().add(1, "year")
 
         while (pd.valueOf() <= oneYearLater.valueOf()) {
-            const weekDay = pd.day() // 0 = شنبه ... 6 = جمعه
+            // cant select the جمعه و پنجشنبه in canelnde :P
+            const weekDay = pd.day()
             if (weekDay !== 6 && weekDay !== 7) {
-                // پنجشنبه و جمعه رو حذف کن
                 formattedAvailableDates.push(pd.format("YYYY/MM/DD"))
             }
             pd = pd.clone().add(1, "day")
@@ -106,7 +106,6 @@ const RoomDetailPage = () => {
         if (selectedDate && startTime && endTime) {
             setShowReservationMessage(true)
             const reservation = { roomImage: room.image, date: selectedDate, startTime, endTime, totalCost, mood }
-            console.log("Saving reservation:", reservation) // دیباگ برای چک کردن داده
             localStorage.setItem("lastReservation", JSON.stringify(reservation))
             setTimeout(() => {
                 navigate("/user-profile", { state: { reservation } })
@@ -161,7 +160,6 @@ const RoomDetailPage = () => {
                     <CustomCalendar availableDates={room.availableDates} selectedDate={selectedDate} onDateSelect={setSelectedDate} />
                 </div>
             </div>
-            {/* بخش انتخاب ساعت */}
             <div className="p-8">
                 <div className="bg-[#FBD2B0] w-full rounded-3xl h-[70px] flex justify-between items-center mb-8 p-4">
                     <div className="flex items-center gap-2.5">
@@ -192,8 +190,6 @@ const RoomDetailPage = () => {
                     </div>
                 </div>
             </div>
-
-            {/* بخش حال و هوا */}
             <div className="p-8 dark:bg-[#FDDEC3] rounded-4xl">
                 <h2 className="text-2xl sm:text-lg md:text-xl font-bold text-[#8D5215] dark:text-[#DF7F1D] mb-4">حال و هوای شما</h2>
                 <div className="flex flex-wrap gap-4 justify-center ">

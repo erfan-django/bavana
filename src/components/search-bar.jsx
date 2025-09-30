@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import AllRoomData from "../data/room-data" // مسیر درست رو بذار
+import AllRoomData from "../data/room-data"
 
 const SearchBar = () => {
     const [query, setQuery] = useState("")
@@ -21,9 +21,12 @@ const SearchBar = () => {
     }
 
     const handleSelectRoom = (roomId) => {
-        setQuery("") // بعد از انتخاب، سرچ خالی بشه
-        setResults([]) // نتایج بسته بشن
-        navigate(`/room/${roomId}`) // انتقال به صفحه جزئیات
+        // after select , empty the input
+        setQuery("")
+        //  close results
+        setResults([])
+        // GO IN MYROOM PAGE FOR THAT CARD SEARCHED
+        navigate(`/room/${roomId}`)
     }
 
     return (
