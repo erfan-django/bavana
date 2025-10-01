@@ -74,7 +74,7 @@ const ContactUs = () => {
                         </button>
                     </form>
                 </div>
-                <div className="my-5 lg:my-0 rounded-[200px] p-12 flex justify-center items-center bg-[#ED8F44]">
+                <div className="my-5 lg:my-0 mx-4 rounded-[200px] p-12 flex justify-center items-center bg-[#ED8F44]">
                     <img src={emailform} alt="email" className="rounded-[36px]" />
                 </div>
             </div>

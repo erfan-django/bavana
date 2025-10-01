@@ -41,7 +41,7 @@ const MyRoomPage = () => {
                 {allRoomData
                     .filter((room) => room.type === "meeting")
                     .map((room) => (
-                        <div key={room.id} className="hover:shadow-lg/30 flex flex-col rounded-[50px] border-2 border-[#5C4033] dark:border-[#DF7F1D] w-[432px] h-[437px]">
+                        <div key={room.id} className="hover:shadow-lg/30 flex flex-col rounded-[50px] border-2 border-[#5C4033] dark:border-[#DF7F1D] w-[320px] h-[340px] lg:w-[432px] lg:h-[437px]">
                             <img src={room.image} alt={room.title} className="px-3 py-3" />
                             <div className="flex justify-between mr-3 ml-[35px]">
                                 <span className="text-2xl dark:text-[#DF7F1D]">{room.title}</span>
@@ -63,7 +63,7 @@ const MyRoomPage = () => {
                 {allRoomData
                     .filter((room) => room.type === "special")
                     .map((room) => (
-                        <div key={room.id} className="hover:shadow-lg/30 flex flex-col rounded-[50px] border-2 border-[#5C4033] dark:border-[#DF7F1D] w-[432px] h-[437px]">
+                        <div key={room.id} className="hover:shadow-lg/30 flex flex-col rounded-[50px] border-2 border-[#5C4033] dark:border-[#DF7F1D] w-[320px] h-[340px] lg:w-[432px] lg:h-[437px]">
                             <img src={room.image} alt={room.title} className="px-3 py-3" />
                             <div className="flex justify-between mr-3 ml-[35px]">
                                 <span className="text-2xl dark:text-[#DF7F1D]">{room.title}</span>
