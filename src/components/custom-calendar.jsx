@@ -42,7 +42,7 @@ const CustomCalendar = ({ availableDates, selectedDate, onDateSelect }) => {
         const firstDay = getFirstDayOfMonth(currentYear, currentMonth)
 
         for (let i = 0; i < (firstDay === 0 ? 6 : firstDay - 1); i++) {
-            cells.push(<td key={`empty-${i}`} className="p-1 sm:p-1.5 lg:p-2"></td>)
+            cells.push(<td key={`empty-${i}`} className="p-1 sm:p-1.5"></td>)
         }
 
         for (let day = 1; day <= days; day++) {
@@ -58,9 +58,7 @@ const CustomCalendar = ({ availableDates, selectedDate, onDateSelect }) => {
             cells.push(
                 <td
                     key={day}
-                    className={`p-1 sm:p-1.5 lg:p-2 cursor-pointer text-center rounded-full text-sm sm:text-xs lg:text-base
-                        ${isAvailable ? (isSelected ? "bg-[#ED8F44] text-white" : "bg-[#1BC300] text-white hover:bg-[#D77A3A]") : "bg-gray-300 text-gray-500 cursor-not-allowed"}
-                        ${isToday ? " border-2 border-black" : ""}`}
+                    className={`p-1 sm:p-1.5 cursor-pointer text-center rounded-full text-sm sm:text-xs ${isAvailable ? (isSelected ? "bg-[#ED8F44] text-white" : "bg-[#1BC300] text-white hover:bg-[#D77A3A]") : "bg-gray-300 text-gray-500 cursor-not-allowed"} ${isToday ? "border-2 border-black" : ""}`}
                     onClick={() => {
                         if (isAvailable) onDateSelect(dateStr)
                     }}>
@@ -75,24 +73,24 @@ const CustomCalendar = ({ availableDates, selectedDate, onDateSelect }) => {
         }
 
         return (
-            <table className="w-full border-collapse text-right dark:bg-[#FDDEC3]">
-                <thead className="dark:bg-[#FDDEC3]">
+            <table className="w-full border-collapse text-right">
+                <thead>
                     <tr>
-                        <th colSpan="7" className="p-2 sm:p-3 lg:p-5 text-center bg-[#FDDEC3] text-[#8D5215]">
-                            <button onClick={() => changeMonth(-1)} className="cursor-pointer hover:scale-125 mx-1 sm:mx-2">
+                        <th colSpan="7" className="p-2 sm:p-3 text-center bg-[#FDDEC3] text-[#8D5215]">
+                            <button onClick={() => changeMonth(-1)} className="cursor-pointer hover:scale-125 mx-1">
                                 &lt;
                             </button>
-                            <span className="mx-2 sm:mx-1 lg:mx-2">
+                            <span className="mx-1 sm:mx-2">
                                 {persianMonths[currentMonth]} {currentYear}
                             </span>
-                            <button onClick={() => changeMonth(1)} className="cursor-pointer hover:scale-125 mx-1 sm:mx-2">
+                            <button onClick={() => changeMonth(1)} className="cursor-pointer hover:scale-125 mx-1">
                                 &gt;
                             </button>
                         </th>
                     </tr>
-                    <tr className="text-center text-xs sm:text-[10px] lg:text-base dark:bg-[#FDDEC3] ">
+                    <tr className="text-center text-xs sm:text-[10px]">
                         {["شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه"].map((d, i) => (
-                            <th key={i} className=" p-1 sm:p-1.5 lg:p-2">
+                            <th key={i} className="p-1 sm:p-1.5">
                                 {d}
                             </th>
                         ))}
@@ -104,9 +102,9 @@ const CustomCalendar = ({ availableDates, selectedDate, onDateSelect }) => {
     }
 
     return (
-        <div className="border border-[#ED8F44] rounded-lg p-2 sm:p-3 lg:p-3 text-sm sm:text-xs lg:text-xl w-full">
+        <div className="border border-[#ED8F44] rounded-lg p-2 sm:p-3 w-full overflow-x-hidden">
             {renderCalendar()}
-            {selectedDate && <p className="mt-2 sm:mt-3 lg:mt-4 text-sm sm:text-xs lg:text-lg text-[#8D5215] dark:text-white font-bold">تاریخ انتخاب شده: {selectedDate}</p>}
+            {selectedDate && <p className="mt-2 sm:mt-3 text-sm text-[#8D5215] dark:text-white font-bold">تاریخ انتخاب شده: {selectedDate}</p>}
         </div>
     )
 }

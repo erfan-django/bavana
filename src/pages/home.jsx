@@ -153,7 +153,7 @@ const HomePage = () => {
                         <p className="text-lg lg:text-2xl font-normal dark:text-white">حستو انتخاب کن حالتو بساز</p>
                     </div>
                 </div>
-                <div className="relative w-full flex justify-center mt-5 lg:mt-0">
+                <div className="relative flex justify-center mt-5 mx-5 lg:w-full lg:mx-0 lg:mt-0 ">
                     <img src={redhairladybg} alt="red-hair-lady-bg" className="object-cover dark:hidden" />
                     <img src={redhairladybgdark} alt="red-hair-lady-bg" className="object-cover dark:block hidden" />
                     <img src={redhairlady} alt="red-hair-lady" className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] md:w-[50%]" />
