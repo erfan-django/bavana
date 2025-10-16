@@ -88,7 +88,7 @@ const CustomCalendar = ({ availableDates, selectedDate, onDateSelect }) => {
                             </button>
                         </th>
                     </tr>
-                    <tr className="text-center text-xs sm:text-[10px]">
+                    <tr className="text-center text-xs sm:text-[10px] dark:text-[#DF7F1D]">
                         {["شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه"].map((d, i) => (
                             <th key={i} className="p-1 sm:p-1.5">
                                 {d}

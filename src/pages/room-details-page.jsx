@@ -219,7 +219,7 @@ const RoomDetailPage = () => {
                     <button onClick={handleCompleteReservation} className="bg-[#ED8F44] text-white px-4 py-2 rounded-lg text-lg hover:bg-[#D77A3A] transition cursor-pointer">
                         تکمیل رزرو
                     </button>
-                    <p className="mt-2 text-lg text-[#8D5215]">هزینه کل: {totalCost.toLocaleString()} تومان</p>
+                    <p className="mt-2 text-lg text-[#8D5215] dark:text-[#DF7F1D]">هزینه کل: {totalCost.toLocaleString()} تومان</p>
                 </div>
             )}
         </div>

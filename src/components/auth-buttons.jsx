@@ -124,11 +124,11 @@ const AuthButtons = () => {
                                     <button onClick={toggleMenu} className="absolute top-4 right-4 text-[#ED8F44] hover:text-red-700 text-3xl">
                                         ×
                                     </button>
-                                    <p className="text-lg mt-10 mx-2 px-3 p-2 text-black dark:text-white rounded-[20px] bg-white">{user?.name || "کاربر"}</p>
-                                    <p className="text-sm mt-4 mx-2 px-3 p-2 text-[#4D2B09] dark:text-white/70 rounded-[20px] bg-white">{user?.email || "ایمیل"}</p>
-                                    <p className="mt-6 text-lg font-semibold">آخرین رزرو:</p>
+                                    <p className="text-lg mt-10 mx-2 px-3 p-2 text-black  rounded-[20px] dark:text-black dark:bg-[#FDDEC3] bg-white">{user?.name || "کاربر"}</p>
+                                    <p className="text-sm mt-4 mx-2 px-3 p-2 text-[#4D2B09]  rounded-[20px] dark:text-black dark:bg-[#FDDEC3] bg-white">{user?.email || "ایمیل"}</p>
+                                    <p className="mt-6 text-lg font-semibold text-white">آخرین رزرو:</p>
                                     {reservation ? (
-                                        <div className="mt-4 space-y-2 flex flex-col text-center">
+                                        <div className="mt-4 space-y-2 flex flex-col text-center [&>*]:dark:text-black [&>*]:p-2 [&>*]:bg-[#FDDEC3] [&>*]:rounded-xl">
                                             <p>
                                                 <strong>تاریخ:</strong> {reservation.date}
                                             </p>
