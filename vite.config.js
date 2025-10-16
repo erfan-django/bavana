@@ -7,6 +7,6 @@ export default defineConfig({
     server: {
         port: 3000,
     },
-    base: "/bavana/",
+    base: "/bavana-demo/",
     plugins: [react(), svgr(), tailwindcss()],
 })
