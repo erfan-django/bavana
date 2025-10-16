@@ -9,7 +9,6 @@
         "lint": "eslint .",
         "preview": "vite preview"
     },
-    "homepage": "https://erfan-django.github.io/bavana-demo",
     "dependencies": {
         "@tailwindcss/vite": "^4.1.13",
         "date-fns": "^4.1.0",
