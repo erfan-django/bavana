@@ -4,10 +4,10 @@ import Footer from "../components/footer"
 
 const MainLayout = () => {
     return (
-        <div className="flex flex-col">
-            <div className="@container dark:bg-[#251D16] bg-[#FDF6F0] w-full xl:w-[90%] max-w-[1440px] mx-auto flex-0">
+        <div className="flex flex-col overflow-x-hidden">
+            <div className="@container dark:bg-[#251D16] bg-[#FDF6F0] w-full xl:w-[90%] max-w-[1440px] mx-auto flex-0 justify-center items-center flex flex-col">
                 <Header />
-                <main className="flex-1">
+                <main className="flex-1 mt-[100px]">
                     <div className="mx-auto">
                         <Outlet />
                     </div>

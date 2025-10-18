@@ -5,7 +5,7 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [user, setUser] = useState(null)
 
-    // بازیابی وضعیت لاگین از localStorage هنگام بارگذاری اولیه
+    //    when you load check localStorage for login
     useEffect(() => {
         const storedAuth = localStorage.getItem("isAuthenticated")
         const storedUser = localStorage.getItem("user")
