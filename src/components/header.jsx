@@ -27,7 +27,7 @@ const Header = () => {
                     <Logo />
                 </Link>
 
-                <AuthButtons isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} user={user} setUser={setUser} className="" />
+                <AuthButtons />
             </div>
 
             {/*   Mobile Menu */}
@@ -37,7 +37,7 @@ const Header = () => {
                         <HamburgerIcon className="w-6 h-6 text-[#8D5215] dark:text-[#DF7F1D]" />
                     </button>
                     <Logo />
-                    <NavMenu isAuthenticated={isAuthenticated} onLinkClick={() => setIsMenuOpen(false)} />
+                    <NavMenu onLinkClick={() => setIsMenuOpen(false)} />
                     <ThemeToggle />
                 </div>
             )}
@@ -48,14 +48,14 @@ const Header = () => {
                     <Link to="/">
                         <Logo />
                     </Link>
-                    <NavMenu isAuthenticated={isAuthenticated} />
+                    <NavMenu />
                 </div>
                 <div className="flex items-center w-50% lg:basis-[48%]">
                     <SearchBar />
                     <div className="hidden lg:flex bg-white rounded-full w-[35px] h-[35px] z-10 relative right-[-166px] xl:right-[-436px] justify-center items-center cursor-pointer">
                         <SearchBtn />
                     </div>
-                    <AuthButtons isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} user={user} setUser={setUser} />
+                    <AuthButtons />
                     <ThemeToggle />
                 </div>
             </div>
