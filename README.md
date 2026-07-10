@@ -1,12 +1,115 @@
-# React + Vite
+# باوانا (Bavana) — سامانه هوشمند رزرو فضای مطالعه
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+یه پروژه شخصی برای رزرو آنلاین فضای مطالعه. توی این سایت کاربرا می‌تونن از بین چند تا فضا (صندلی اشتراکی، اتاق جلسه، دفتر اختصاصی) یکی رو انتخاب کنن، تاریخ و ساعتش رو مشخص کنن و رزروش کنن.
 
-Currently, two official plugins are available:
+نکته جالبش اینه که قبل از رزرو ازت می‌پرسه "حالت چطوره؟" و بر اساس حسی که داری یه پلی‌لیست از اسپاتیفای پیشنهاد میده. مثلا اگه بی‌حوصله باشی یه پلی‌لیست شاد، اگه ناراحت باشی یه پلی‌لیست آروم. اینجوری فضا و موسیقی با هم هماهنگن.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## چیکار می‌کنه؟
 
-## Expanding the ESLint configuration
+- رزرو آنلاین سه نوع فضا (صندلی اشتراکی، اتاق جلسه، دفتر اختصاصی)
+- تقویم شمسی برای انتخاب تاریخ
+- انتخاب ساعت شروع و پایان
+- انتخاب حس و حال و دریافت پلی‌لیست پیشنهادی
+- سیستم ورود و ثبت‌نام (با localStorage)
+- نمایش آخرین رزرو توی پروفایل کاربر
+- قابلیت جستجوی فضاها
+- حالت تاریک و روشن
+- پلیر موزیک شناور برای دسکتاپ (قابل درگ کردن)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## توی پروژه از چی استفاده شده؟
+
+- **React 19** + **Vite 7** برای ساختار اصلی
+- **React Router DOM v7** برای مسیریابی
+- **Tailwind CSS v4** برای استایل‌دهی
+- **Zustand** برای مدیریت state (هرچند فعلا خیلی استفاده نشده)
+- **react-draggable** برای پلیر موزیک شناور
+- **date-fns** + **persian-date** برای کار با تاریخ شمسی
+- **Vazirmatn** فونت فارسی
+- **SVGR** برای استفاده از SVGها به صورت کامپوننت
+
+## ساختار پروژه
+
+```
+src/
+├── assets/          # عکس‌ها و آیکون‌ها
+├── components/      # کامپوننت‌های shared
+│   ├── common/      # دکمه، اسکلتون، سرچ
+│   ├── header.jsx
+│   ├── footer.jsx
+│   ├── nav-menu.jsx
+│   ├── search-bar.jsx
+│   ├── auth-buttons.jsx
+│   ├── auth-provider.jsx
+│   ├── auth-context.jsx
+│   ├── Theme-Toggle.jsx
+│   ├── custom-calendar.jsx
+│   ├── Logo.jsx
+│   ├── playlist-context.jsx
+│   ├── playlist-player.jsx
+│   └── useplaylist.jsx
+├── pages/           # صفحه‌های اصلی
+│   ├── home.jsx
+│   ├── about-us.jsx
+│   ├── contact-us.jsx
+│   ├── login-page.jsx
+│   ├── sign-up-page.jsx
+│   ├── my-room-page.jsx
+│   ├── room-details-page.jsx
+│   ├── user-profile-page.jsx
+│   └── not-found-page.jsx
+├── layout/          # لایه‌بندی اصلی
+├── data/            # دیتای اتاق‌ها
+├── store/           # Zustand store
+├── App.jsx
+└── main.jsx
+```
+
+## چطور اجراش کنم؟
+
+```
+npm install
+npm run dev
+```
+
+سایت روی `http://localhost:3000` باز می‌شه.
+
+برای build:
+
+```
+npm run build
+```
+
+## صفحه‌بندی
+
+| مسیر | توضیح |
+|------|--------|
+| `/` | صفحه اصلی با معرفی فضاها و نظرات |
+| `/myroom` | لیست کامل اتاق‌ها (نیاز به ورود) |
+| `/room/:id` | جزئیات فضا + رزرو + انتخاب حس و حال |
+| `/about-us` | درباره ما + سوالات متداول |
+| `/contact-us` | فرم تماس و اطلاعات ارتباطی |
+| `/login` | ورود |
+| `/signup` | ثبت‌نام |
+| `/user-profile` | پروفایل و آخرین رزرو |
+
+## نکته‌های فنی
+
+- همه دیتاها فعلا mock هستن و خبری از بک‌اند نیست.
+- احراز هویت با localStorage انجام می‌شه.
+- پلیر اسپاتیفای به صورت iframe اضافه شده و روی دسکتاپ قابل درگ کردنه.
+- تاریخ‌های موجود توی تقویم به صورت خودکار از تاریخ روز往后 تولید می‌شن.
+- اگه یه کاربر ثبت‌نام کنه، مستقیما به صفحه اصلی هدایت می‌شه و لاگین می‌مونه.
+
+## چیزایی که می‌شه بعدا اضافه کرد
+
+- اتصال به API واقعی برای رزرو و احراز هویت
+- پنل ادمین برای مدیریت فضاها
+- سیستم نوتیفیکیشن
+- قابلیت لغو و ویرایش رزرو از سمت کاربر
+- صفحه‌بندی و فیلتر پیشرفته برای اتاق‌ها
+
+## ارتباط با من
+
+اگه سوالی بود یا پیشنهادی داشتی، خوشحال می‌شم باهات صحبت کنم.
+
+**تلگرام:** [erfanDjango](https://t.me/erfanDjango)
