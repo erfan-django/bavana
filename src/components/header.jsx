@@ -6,10 +6,9 @@ import SearchBar from "./search-bar"
 import AuthButtons from "./auth-buttons"
 import ThemeToggle from "./Theme-Toggle"
 import SearchBtn from "./common/search-btn"
-import HamburgerIcon from "../assets/icons/humberger-icon.svg?react" // SVG همبرگری خودت
+import HamburgerIcon from "../assets/icons/humberger-icon.svg?react"
 
-const Header = ({ isAuthenticated, setIsAuthenticated, user, setUser }) => {
-    console.log("Header props:", { isAuthenticated, setIsAuthenticated, user, setUser })
+const Header = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -18,7 +17,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated, user, setUser }) => {
     }
 
     return (
-        <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center lg:gap-[7%] py-2 lg:py-0 lg:h-[84px] bg-[#FDF6F0] dark:bg-[#251D16] px-x">
+        <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center lg:gap-[7%] py-2 lg:py-0 lg:h-[84px] bg-[#FDF6F0] dark:bg-[#251D16] px-4">
             {/*  Mobile */}
             <div className="flex justify-between items-center w-full md:hidden">
                 <button onClick={toggleMenu}>

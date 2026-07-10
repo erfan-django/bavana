@@ -77,7 +77,6 @@ const AboutUs = () => {
                     <img src={headerline3} className="w-10 h-10 lg:h-fit lg:w-fit mt-[20px]" />
                 </div>
             </div>
-
             <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6 p-2 sm:p-4 lg:p-0">
                 <h2 className="text-[#8D5215] text-xl sm:text-2xl lg:text-4xl font-semibold mb-4 sm:mb-6 lg:mb-[28px] dark:text-[#DF7F1D]">سوالات متداول</h2>
                 {faqs.map((faq, index) => (

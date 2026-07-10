@@ -31,27 +31,6 @@
     border-color: #8d5215;
 }
 
-/* انیمیشن برای پیام دلگرم‌کننده */
-.pulse {
-    animation: pulseAnimation 3s 1;
-}
-
-@keyframes pulseAnimation {
-    0% {
-        background-color: #fbd2b0;
-        transform: scale(1);
-    }
-    50% {
-        background-color: #ed8f44;
-        transform: scale(1.05);
-    }
-    100% {
-        background-color: #fbd2b0;
-        transform: scale(1);
-    }
-}
-
-/* استایل برای اسلایدرهای ساعت */
 .overflow-x-auto::-webkit-scrollbar {
     display: none;
 }
@@ -70,7 +49,6 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* انیمیشن برای پیام رزرو */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -83,6 +61,3 @@ button:hover {
 .animate-fade {
     animation: fadeIn 0.3s ease-in;
 }
-/* انیمیشن برای صفحه درباره ما وقتی روی سوالات متادول کلیک میشه  */
-/* FEATURE , LATER : */
-/* :) */

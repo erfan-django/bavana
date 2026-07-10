@@ -8,6 +8,7 @@ const LoginPage = () => {
     const { login } = useContext(AuthContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [errors, setErrors] = useState({})
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from || "/"
@@ -23,13 +24,15 @@ const LoginPage = () => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-        if (username && password) {
-            const userData = { name: username, email: `${username}@example.com` }
-            login(userData)
-            navigate(from, { replace: true })
-        } else {
-            alert("لطفاً نام کاربری و رمز عبور را وارد کنید")
-        }
+        const errs = {}
+        if (!username.trim()) errs.username = "نام کاربری الزامی است"
+        if (!password.trim()) errs.password = "رمز عبور الزامی است"
+        else if (password.length < 4) errs.password = "رمز عبور حداقل ۴ کاراکتر باشد"
+        setErrors(errs)
+        if (Object.keys(errs).length > 0) return
+        const userData = { name: username, email: `${username}@example.com` }
+        login(userData)
+        navigate(from, { replace: true })
     }
 
     return (
@@ -45,8 +48,10 @@ const LoginPage = () => {
                 <h1 className="lg:text-5xl text-2xl shadow-black shadow-3xl font-bold text-[#8D5215] dark:text-[#DF7F1D]">ورود به حساب کاربری</h1>
 
                 <form className="mt-[100px] lg:space-y-4 mx-6 flex flex-col gap-2" onSubmit={handleLogin}>
-                    <input type="text" className="bg-white dark:text-[#DF7F1D] border text-xl border-[#ED8F44] py-[23px] px-10 rounded-[30px] w-full max-w-[450px] placeholder:text-[#DF7F1D]" placeholder="نام کاربری" value={username} onChange={(e) => setUsername(e.target.value)} />
-                    <input type="password" className="bg-white dark:text-[#DF7F1D] border text-xl border-[#ED8F44] py-[23px] px-10 rounded-[30px] w-full max-w-[450px] placeholder:text-[#DF7F1D]" placeholder="رمز عبور" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type="text" className="bg-white dark:text-[#DF7F1D] border text-xl border-[#ED8F44] py-[23px] px-10 rounded-[30px] w-full max-w-[450px] placeholder:text-[#DF7F1D]" placeholder="نام کاربری" value={username} onChange={(e) => { setUsername(e.target.value); if (errors.username) setErrors((p) => ({ ...p, username: undefined })) }} />
+                    {errors.username && <p className="text-red-500 text-sm -mt-2 mr-2">{errors.username}</p>}
+                    <input type="password" className="bg-white dark:text-[#DF7F1D] border text-xl border-[#ED8F44] py-[23px] px-10 rounded-[30px] w-full max-w-[450px] placeholder:text-[#DF7F1D]" placeholder="رمز عبور" value={password} onChange={(e) => { setPassword(e.target.value); if (errors.password) setErrors((p) => ({ ...p, password: undefined })) }} />
+                    {errors.password && <p className="text-red-500 text-sm -mt-2 mr-2">{errors.password}</p>}
                     <button type="submit" className="bg-[#ED8F44] text-xl text-white py-[23px] px-10 rounded-[30px] w-full max-w-[450px] hover:bg-[#ED8F44]/90 dark:text-white">
                         ورود
                     </button>

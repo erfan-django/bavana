@@ -1,15 +1,37 @@
-import { useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { Navigate, useNavigate } from "react-router-dom"
 import { AuthContext } from "../components/auth-context"
 import LeftArrow from "../assets/icons/left-arrow.svg?react"
 import allRoomData from "../data/room-data"
+import { SkeletonCard } from "../components/common/skeleton"
 
 const MyRoomPage = () => {
     const { isAuthenticated } = useContext(AuthContext)
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 400)
+        return () => clearTimeout(timer)
+    }, [])
+
     if (!isAuthenticated) {
         return <Navigate to="/login" replace />
     }
+
+    if (loading) return (
+        <div className="dark:bg-[#251D16] bg-[#FDF6F0] min-h-screen">
+            {["صندلی اشتراکی", "اتاق جلسه", "دفتر اختصاصی"].map((title) => (
+                <div key={title}>
+                    <h1 className="text-3xl font-bold text-[#8D5215] dark:text-[#DF7F1D] my-[60px] text-center">{title}</h1>
+                    <div className="flex flex-wrap justify-center gap-[30px] max-w-[1400px] mx-auto mb-[145px]">
+                        {Array.from({ length: 3 }).map((_, i) => <SkeletonCard key={i} />)}
+                    </div>
+                </div>
+            ))}
+        </div>
+    )
+
     return (
         <div className="dark:bg-[#251D16] bg-[#FDF6F0] min-h-screen">
             <h1 className="text-3xl font-bold text-[#8D5215] dark:text-[#DF7F1D] my-[60px] text-center">صندلی اشتراکی</h1>

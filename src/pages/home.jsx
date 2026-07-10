@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../components/auth-context"
 import gallery1 from "../assets/header-gallery-1.png"
@@ -20,6 +20,7 @@ import layer0 from "../assets/layer0.png"
 import layer1 from "../assets/layer1.png"
 import layer2 from "../assets/layer2.png"
 import allRoomData from "../data/room-data"
+import { SkeletonCard } from "../components/common/skeleton"
 
 const HomePage = () => {
     const { isAuthenticated } = useContext(AuthContext)
@@ -41,6 +42,13 @@ const HomePage = () => {
     const handleViewAll = () => {
         navigate("/myroom")
     }
+
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 400)
+        return () => clearTimeout(timer)
+    }, [])
 
     //    GET one room from every catagory to show in home page
     const uniqueRooms = allRoomData.reduce((acc, room) => {
@@ -168,7 +176,9 @@ const HomePage = () => {
                     </a>
                 </div>
                 <div className="flex flex-wrap lg:justify-between justify-center items-center gap-[30px] mx-[42px] mb-6">
-                    {Object.values(uniqueRooms).map((room) => (
+                    {loading ? (
+                        Array.from({ length: 3 }).map((_, i) => <SkeletonCard key={i} />)
+                    ) : Object.values(uniqueRooms).map((room) => (
                         <div key={room.id} className="cursor-pointer hover:shadow-lg/30 flex flex-col rounded-[50px] border-2 border-[#5C4033] dark:border-[#DF7F1D] lg:w-[432px] h-[260px] w-[222px] lg:h-[437px]">
                             <img src={room.image || card1} alt={room.title} className="px-3 py-3" />
                             <div className="flex justify-between mr-3 ml-[35px]">

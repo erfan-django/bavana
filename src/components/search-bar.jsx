@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import AllRoomData from "../data/room-data"
+import allRoomData from "../data/room-data"
 
 const SearchBar = () => {
     const [query, setQuery] = useState("")
@@ -16,7 +16,7 @@ const SearchBar = () => {
             return
         }
 
-        const filtered = AllRoomData.filter((room) => room.title.toLowerCase().includes(value.toLowerCase()))
+        const filtered = allRoomData.filter((room) => room.title.toLowerCase().includes(value.toLowerCase()))
         setResults(filtered)
     }
 

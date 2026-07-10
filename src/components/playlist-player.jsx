@@ -1,13 +1,20 @@
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import usePlaylist from "./useplaylist"
 import Draggable from "react-draggable"
 
 const PlaylistPlayer = () => {
     const { isPlaylistVisible, currentMood, playlistUrl, setIsPlaylistVisible } = usePlaylist()
     const nodeRef = useRef(null)
+    const [isDesktop, setIsDesktop] = useState(false)
 
-    //JUST SHOW THIS IN DESKTOP , ITS BG
-    if (window.innerWidth < 1024) return null
+    useEffect(() => {
+        setIsDesktop(window.innerWidth >= 1024)
+        const handleResize = () => setIsDesktop(window.innerWidth >= 1024)
+        window.addEventListener("resize", handleResize)
+        return () => window.removeEventListener("resize", handleResize)
+    }, [])
+
+    if (!isDesktop) return null
     if (!isPlaylistVisible || !currentMood || !playlistUrl) return null
 
     const handleClose = () => {

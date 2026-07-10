@@ -1,4 +1,4 @@
-import React from "react"
+import { useState } from "react"
 import contactus from "../assets/contactus.png"
 import emailform from "../assets/email-form.png"
 import Emailicon from "../assets/icons/emailicon.svg?react"
@@ -8,6 +8,14 @@ import Logo from "../assets/icons/logo bavana.svg?react"
 import PostAdrress from "../assets/icons/postAdrress.svg?react"
 
 const ContactUs = () => {
+    const [sent, setSent] = useState(false)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setSent(true)
+        setTimeout(() => setSent(false), 3000)
+    }
+
     return (
         <div>
             <div className="hidden lg:flex relative  justify-center items-center ">
@@ -65,7 +73,8 @@ const ContactUs = () => {
                 <div className="max-sm:flex max-sm:flex-col">
                     <h3 className="text-[#8D5215] dark:text-[#DF7F1D]  text-2xl/loose font-semibold lg:text-3xl">ارسال پیام به ما</h3>
                     <p className=" dark:text-[#DF7F1D] mt-3 text-xl lg:text-2xl">پذیرای پیشنهادات و انتقادات شما هستیم</p>
-                    <form className="flex flex-col items-center gap-5">
+                    {sent && <p className="text-green-600 dark:text-green-400 text-center mt-2">پیام شما با موفقیت ارسال شد</p>}
+                    <form className="flex flex-col items-center gap-5" onSubmit={handleSubmit}>
                         <input type="text" placeholder="نام شما" className="pr-7 px-3 py-8 text-xl xl:text-2xl max-h-[25px] w-[261px] md:w-[180px] xl:w-[449px] placeholder-[#8D521580]/60 dark:placeholder-[#fff] border-2 border-[#ED8F44] rounded-[60px] focus:outline-none focus:ring-orange-700 focus:ring-2 transition-all duration-200 mt-10 " />
                         <input type="email" placeholder="ادرس ایمیل" className="pr-7 px-3 py-8 text-xl xl:text-2xl max-h-[25px] w-[261px] md:w-[180px] xl:w-[449px] placeholder-[#8D521580]/60 dark:placeholder-[#fff] border-2 border-[#ED8F44] rounded-[60px] focus:outline-none focus:ring-orange-700 focus:ring-2 transition-all duration-200 " />
                         <input type="text" placeholder="پیام ...." className="pr-7 px-3 py-8 text-xl xl:text-2xl h-[250px] w-[261px] md:w-[180px] xl:w-[449px] placeholder-[#8D521580]/60 dark:placeholder-[#fff] border-2 border-[#ED8F44] rounded-[30px] focus:outline-none focus:ring-orange-700 focus:ring-2 transition-all duration-200  " />

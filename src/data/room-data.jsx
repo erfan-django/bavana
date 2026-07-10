@@ -1,3 +1,4 @@
+import { format, addDays } from "date-fns"
 import room1 from "../assets/room-1.png"
 import room2 from "../assets/room-2.png"
 import room3 from "../assets/room-3.png"
@@ -13,6 +14,14 @@ import specialroom4 from "../assets/special-room-4.png"
 import specialroom5 from "../assets/special-room-5.png"
 import specialroom6 from "../assets/special-room-6.png"
 
+const today = new Date()
+
+const nextWeekdayDate = (offset) => {
+    let d = addDays(today, offset)
+    while (d.getDay() === 6 || d.getDay() === 5) d = addDays(d, 1)
+    return format(d, "yyyy-MM-dd")
+}
+
 const AllRoomData = [
     {
         id: 1,
@@ -21,7 +30,7 @@ const AllRoomData = [
         title: "صندلی اشتراکی",
         description: "صندلی راحت با دسترسی به اینترنت پرسرعت و فضایی آرام.",
         price: "15000 تومان ",
-        availableDates: ["2025-09-25", "2025-09-27", "2025-09-29"], // تاریخ‌های خالی
+        availableDates: [nextWeekdayDate(1), nextWeekdayDate(3), nextWeekdayDate(5)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -31,7 +40,7 @@ const AllRoomData = [
         title: "صندلی اشتراکی (VIP)",
         description: "صندلی VIP با امکانات ویژه.",
         price: "25000 تومان ",
-        availableDates: ["2025-09-25", "2025-09-28", "2025-09-30"],
+        availableDates: [nextWeekdayDate(1), nextWeekdayDate(4), nextWeekdayDate(6)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -41,7 +50,7 @@ const AllRoomData = [
         title: "صندلی اشتراکی روزانه",
         description: "صندلی روزانه با طراحی ارگونومیک.",
         price: "20000 تومان ",
-        availableDates: ["2025-09-26", "2025-09-28", "2025-09-30"],
+        availableDates: [nextWeekdayDate(2), nextWeekdayDate(4), nextWeekdayDate(6)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -51,7 +60,7 @@ const AllRoomData = [
         title: "صندلی اشتراکی میز گرد",
         description: "صندلی با چیدمان دایره‌ای.",
         price: "20000 تومان ",
-        availableDates: ["2025-09-25", "2025-09-27", "2025-09-29"],
+        availableDates: [nextWeekdayDate(1), nextWeekdayDate(3), nextWeekdayDate(5)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -61,7 +70,7 @@ const AllRoomData = [
         title: "صندلی پویا",
         description: "صندلی با قابلیت تنظیم پویا.",
         price: "20000 تومان ",
-        availableDates: ["2025-09-26", "2025-09-28", "2025-09-30"],
+        availableDates: [nextWeekdayDate(2), nextWeekdayDate(4), nextWeekdayDate(6)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -71,7 +80,7 @@ const AllRoomData = [
         title: "اتاق جلسه چهار نفره",
         description: "اتاق مناسب برای جلسات کوچک.",
         price: "25000 تومان ",
-        availableDates: ["2025-09-25", "2025-09-27", "2025-09-29"],
+        availableDates: [nextWeekdayDate(1), nextWeekdayDate(3), nextWeekdayDate(5)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -81,7 +90,7 @@ const AllRoomData = [
         title: "اتاق جلسه هشت نفره",
         description: "اتاق برای جلسات متوسط.",
         price: "30000 تومان ",
-        availableDates: ["2025-09-26", "2025-09-28", "2025-09-30"],
+        availableDates: [nextWeekdayDate(2), nextWeekdayDate(4), nextWeekdayDate(6)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -91,7 +100,7 @@ const AllRoomData = [
         title: "اتاق جلسه ده نفره",
         description: "اتاق برای جلسات بزرگ.",
         price: "35000 تومان ",
-        availableDates: ["2025-09-25", "2025-09-27", "2025-09-29"],
+        availableDates: [nextWeekdayDate(1), nextWeekdayDate(3), nextWeekdayDate(5)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -101,7 +110,7 @@ const AllRoomData = [
         title: "دفتر اختصاصی چهار نفره نارنجی",
         description: "دفتر اختصاصی با طراحی مدرن.",
         price: "65000 تومان ",
-        availableDates: ["2025-09-26", "2025-09-28", "2025-09-30"],
+        availableDates: [nextWeekdayDate(2), nextWeekdayDate(4), nextWeekdayDate(6)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -111,7 +120,7 @@ const AllRoomData = [
         title: "دفتر اختصاصی شش نفره",
         description: "دفتر تک‌نفره شیک.",
         price: "40000 تومان ",
-        availableDates: ["2025-09-25", "2025-09-27", "2025-09-29"],
+        availableDates: [nextWeekdayDate(1), nextWeekdayDate(3), nextWeekdayDate(5)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -121,7 +130,7 @@ const AllRoomData = [
         title: "دفتر اختصاصی شش نفره",
         description: "دفتر برای تیم‌های کوچک.",
         price: "45000 تومان ",
-        availableDates: ["2025-09-26", "2025-09-28", "2025-09-30"],
+        availableDates: [nextWeekdayDate(2), nextWeekdayDate(4), nextWeekdayDate(6)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -131,7 +140,7 @@ const AllRoomData = [
         title: "دفتر اختصاصی یک نفره",
         description: "فضای کاری شخصی.",
         price: "30000 تومان ",
-        availableDates: ["2025-09-25", "2025-09-27", "2025-09-29"],
+        availableDates: [nextWeekdayDate(1), nextWeekdayDate(3), nextWeekdayDate(5)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -141,7 +150,7 @@ const AllRoomData = [
         title: "دفتر اختصاصی شش نفره",
         description: "دفتر برای تیم‌های متوسط.",
         price: "75000 تومان ",
-        availableDates: ["2025-09-26", "2025-09-28", "2025-09-30"],
+        availableDates: [nextWeekdayDate(2), nextWeekdayDate(4), nextWeekdayDate(6)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
     {
@@ -151,7 +160,7 @@ const AllRoomData = [
         title: "دفتر اختصاصی چهار نفره",
         description: "دفتر با طراحی مینیمال.",
         price: "45000 تومان ",
-        availableDates: ["2025-09-25", "2025-09-27", "2025-09-29"],
+        availableDates: [nextWeekdayDate(1), nextWeekdayDate(3), nextWeekdayDate(5)],
         availableTimes: { start: "09:00", end: "18:00" },
     },
 ]

@@ -9,6 +9,7 @@ import smileEyes from "../assets/SmileEyes.png"
 import happy from "../assets/happy.png"
 import sad from "../assets/sad.png"
 import PersianDate from "persian-date"
+import Skeleton from "../components/common/skeleton"
 
 const spotifyPlaylists = {
     خوشحال: "https://open.spotify.com/embed/playlist/7Gqa7bElPSmNWKCpoqrIZW",
@@ -30,6 +31,7 @@ const RoomDetailPage = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const [room, setRoom] = useState(null)
+    const [loaded, setLoaded] = useState(false)
     const [selectedDate, setSelectedDate] = useState(null)
     const [startTime, setStartTime] = useState("09:00")
     const [endTime, setEndTime] = useState("17:00")
@@ -39,7 +41,12 @@ const RoomDetailPage = () => {
     const [showReservationMessage, setShowReservationMessage] = useState(false)
 
     useEffect(() => {
-        const mockRoom = allRoomData.find((r) => r.id === parseInt(id)) || allRoomData[0]
+        const found = allRoomData.find((r) => r.id === parseInt(id))
+        if (!found) {
+            setLoaded(true)
+            return
+        }
+        const mockRoom = found
         const formattedAvailableDates = []
         let pd = new PersianDate()
         const oneYearLater = pd.clone().add(1, "year")
@@ -62,7 +69,33 @@ const RoomDetailPage = () => {
         }
     }, [mood])
 
-    if (!room) return <div>در حال بارگذاری...</div>
+    if (!room && !loaded) return (
+        <div className="dark:bg-[#251D16] bg-[#FDF6F0] min-h-screen p-8">
+            <Skeleton className="w-24 h-8 mb-6" />
+            <div className="flex flex-col lg:flex-row gap-6">
+                <div className="flex-1 space-y-4">
+                    <Skeleton className="w-2/3 h-8" />
+                    <Skeleton className="w-full h-4" />
+                    <Skeleton className="w-1/4 h-6" />
+                </div>
+                <Skeleton className="w-full lg:w-[690px] h-[250px] lg:h-[490px] rounded-lg" />
+            </div>
+            <div className="mt-8 space-y-4">
+                <Skeleton className="w-full h-[70px] rounded-3xl" />
+                <Skeleton className="w-full h-[300px] rounded-lg" />
+            </div>
+        </div>
+    )
+
+    if (!room && loaded) return (
+        <div className="dark:bg-[#251D16] bg-[#FDF6F0] min-h-screen flex flex-col items-center justify-center gap-4 p-8">
+            <img src={unamused} alt="not found" className="w-24 h-24" />
+            <h2 className="text-2xl font-bold text-[#8D5215] dark:text-[#DF7F1D]">فضای مورد نظر یافت نشد</h2>
+            <Link to="/myroom" className="bg-[#ED8F44] text-white px-6 py-2 rounded-xl hover:bg-[#D77A3A] transition">
+                بازگشت به فضاها
+            </Link>
+        </div>
+    )
 
     const generateTimeSlots = () => {
         const times = []

@@ -1,13 +1,39 @@
+import { useState, useEffect } from "react"
 import { useLocation, Link } from "react-router-dom"
 import LeftArrow from "../assets/icons/left-arrow.svg?react"
+import Skeleton from "../components/common/skeleton"
 
 const UserProfilePage = () => {
     const { state } = useLocation()
     const reservation = state?.reservation || {}
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 400)
+        return () => clearTimeout(timer)
+    }, [])
+
+    if (loading) return (
+        <div className="dark:bg-[#251D16] bg-[#FDF6F0] min-h-screen p-8">
+            <div className="flex justify-end mb-6">
+                <Skeleton className="w-20 h-8" />
+            </div>
+            <div className="max-w-4xl mx-auto">
+                <div className="bg-[#FBD2B0]/50 p-6 rounded-lg space-y-4">
+                    <Skeleton className="w-1/3 h-6 mx-auto" />
+                    <div className="flex flex-col lg:flex-row gap-6">
+                        <Skeleton className="w-full lg:w-1/2 h-48 rounded-lg" />
+                        <div className="w-full lg:w-1/2 space-y-4">
+                            {Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="w-full h-10" />)}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 
     return (
         <div className="dark:bg-[#251D16] bg-[#FDF6F0] min-h-screen">
-            {/* دکمه بازگشت */}
             <div className="flex justify-end ml-4 sm:ml-8 lg:ml-28">
                 <Link to="/" className="flex justify-end items-center my-6 sm:my-8 lg:my-10 text-2xl sm:text-3xl text-[#ED8F44]">
                     بازگشت
