@@ -7,6 +7,6 @@ export default defineConfig({
     server: {
         port: 3000,
     },
-    base: "/",
+    base: process.env.VITE_BASE_PATH || "/",
     plugins: [react(), svgr(), tailwindcss()],
 })
